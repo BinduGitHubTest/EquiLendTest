@@ -40,6 +40,7 @@ public class Step_Definitions {
 
     @When("the user clicks on ChallengingDomPage")
     public void theUserClicksOnChallengingDomPage() {
+        welcomePage.clickOnChallenginDomPage();
     }
 
     @And("the user clicks on {string} button")
