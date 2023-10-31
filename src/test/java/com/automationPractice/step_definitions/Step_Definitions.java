@@ -38,4 +38,15 @@ public class Step_Definitions {
         dynamicControlsPage.verifyText(text);
     }
 
+    @When("the user clicks on ChallengingDomPage")
+    public void theUserClicksOnChallengingDomPage() {
+    }
+
+    @And("the user clicks on {string} button")
+    public void theUserClicksOnRedButton() {
+    }
+
+    @Then("verify the ids of blue red and green buttons are changed")
+    public void verifyTheIdsOfBlueRedAndGreenButtonsAreChanged() {
+    }
 }
