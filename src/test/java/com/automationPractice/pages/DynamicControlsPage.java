@@ -24,14 +24,14 @@ public class DynamicControlsPage extends BasePage {
     }
 
     public void clickOnRemoveButton() {
-        waitForPageToLoad(15);
-        waitUntilLocatorIsVisible(removeButton, 15);
+        waitForPageToLoad(10);
+        waitUntilLocatorIsVisible(removeButton, 10);
         clickOn(removeButton);
-        waitUntilLocatorIsVisible(addButton, 15);
+        waitUntilLocatorIsVisible(addButton, 10);
     }
 
     public void verifyText(String text) {
-        waitUntilLocatorIsVisible(itsGoneText, 15);
+        waitUntilLocatorIsVisible(itsGoneText, 10);
         Assert.assertTrue(itsGoneText.getText().equalsIgnoreCase(text));
     }
 }

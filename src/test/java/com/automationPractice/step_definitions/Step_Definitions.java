@@ -1,5 +1,6 @@
 package com.automationPractice.step_definitions;
 
+import com.automationPractice.pages.ChallengingPage;
 import com.automationPractice.pages.DynamicControlsPage;
 import com.automationPractice.pages.WelcomePage;
 import com.automationPractice.utils.ConfigurationReader;
@@ -12,9 +13,11 @@ import io.cucumber.java.en.When;
 public class Step_Definitions {
     private final WelcomePage welcomePage;
     private final DynamicControlsPage dynamicControlsPage;
+    private final ChallengingPage challengingPage;
     public Step_Definitions() {
         welcomePage = new WelcomePage(Driver.get());
         dynamicControlsPage = new DynamicControlsPage(Driver.get());
+        challengingPage = new ChallengingPage(Driver.get());
     }
 
     @Given("the user is on test page")
@@ -44,10 +47,13 @@ public class Step_Definitions {
     }
 
     @And("the user clicks on {string} button")
-    public void theUserClicksOnRedButton() {
+    public void theUserClicksOnRedButton(String buttonName) {
+        challengingPage.clickOnButton(buttonName);
     }
 
     @Then("verify the ids of blue red and green buttons are changed")
     public void verifyTheIdsOfBlueRedAndGreenButtonsAreChanged() {
+        challengingPage.verifyTheButtonIdsAreChanged();
     }
+
 }
