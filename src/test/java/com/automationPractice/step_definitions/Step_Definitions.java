@@ -1,25 +1,41 @@
 package com.automationPractice.step_definitions;
 
+import com.automationPractice.pages.DynamicControlsPage;
+import com.automationPractice.pages.WelcomePage;
+import com.automationPractice.utils.ConfigurationReader;
+import com.automationPractice.utils.Driver;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class Step_Definitions {
+    private final WelcomePage welcomePage;
+    private final DynamicControlsPage dynamicControlsPage;
+    public Step_Definitions() {
+        welcomePage = new WelcomePage(Driver.get());
+        dynamicControlsPage = new DynamicControlsPage(Driver.get());
+    }
+
     @Given("the user is on test page")
-    public void the_user_is_on_test_page() {
-
+    public void theUserIsOnTestPage() {
+        String url = ConfigurationReader.get("url");
+        Driver.get().get(url);
     }
+
     @When("the user clicks on Dynamic Controls")
-    public void the_user_clicks_on_dynamic_controls() {
-
+    public void theUserClicksOnDynamicControls() {
+        welcomePage.clickOnDynamicControls();
     }
-    @When("the user clicks on Remove button")
-    public void the_user_clicks_on_remove_button() {
 
+    @And("the user clicks on Remove button")
+    public void theUserClicksOnRemoveButton() {
+        dynamicControlsPage.clickOnRemoveButton();
     }
+
     @Then("verify the text {string} is rendered")
-    public void verify_the_text_is_rendered(String string) {
-
+    public void verifyTheTextItsGoneIsRendered(String text) {
+        dynamicControlsPage.verifyText(text);
     }
 
 }
